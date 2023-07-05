@@ -1,10 +1,13 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import Header from '../../header/Header';
 
 export default function ChatScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.header} />
+      <View style={styles.header}>
+        <Header name="Alexander  James" company="ABC Dispatcher LLC" />
+      </View>
 
       <View style={styles.body}>{/* <Text>Chat here</Text> */}</View>
     </View>
