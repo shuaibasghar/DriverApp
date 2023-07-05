@@ -3,15 +3,17 @@ import Svg, {Path} from 'react-native-svg';
 
 interface AppoloIconsProps {
   fillColor?: string;
+  width?: number;
+  height?: number;
 }
 
 const AppoloIcons: React.FC<AppoloIconsProps> = props => {
-  const {fillColor} = props;
+  const {fillColor, width, height} = props;
 
   return (
     <Svg
-      width={44}
-      height={43}
+      width={width ? width : '44'}
+      height={height ? height : '43'}
       viewBox="0 0 44 43"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

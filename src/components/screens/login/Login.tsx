@@ -8,10 +8,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+// import {useNavigation} from '@react-navigation/native';
 import AppoloIcons from '../../../assets/icons/AppoloIcons';
+
 const screenWidth = Dimensions.get('screen').width;
 // console.log(screenWidth);
-function Login() {
+function Login({navigation}) {
+  // const navigation = useNavigation();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const handleEmailChange = (text: string) => {
@@ -24,6 +27,7 @@ function Login() {
   const handleLoginPress = () => {
     console.log('Email:', email);
     console.log('Password:', password);
+    navigation.navigate('Tabs');
   };
   return (
     <View style={styles.container}>
