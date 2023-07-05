@@ -3,12 +3,13 @@ import Svg, {Path} from 'react-native-svg';
 
 interface ProfileIconProps {
   fillColor?: string;
+  stroke?: string;
   width?: number;
   height?: number;
 }
 
 const ProfileIcon: React.FC<ProfileIconProps> = props => {
-  const {fillColor, width, height} = props;
+  const {fillColor, stroke, width, height} = props;
 
   return (
     <Svg
@@ -20,7 +21,7 @@ const ProfileIcon: React.FC<ProfileIconProps> = props => {
       {...props}>
       <Path
         d="M9.49886 8.028C11.5086 8.028 13.1379 6.39876 13.1379 4.389C13.1379 2.37924 11.5086 0.75 9.49886 0.75C7.4891 0.75 5.85986 2.37924 5.85986 4.389C5.85986 6.39876 7.4891 8.028 9.49886 8.028Z"
-        stroke="#C0C5D1"
+        stroke={stroke ? stroke : '#C0C5D1'}
         stroke-width="1.5"
       />
       <Path

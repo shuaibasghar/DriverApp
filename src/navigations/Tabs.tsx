@@ -19,13 +19,16 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarActiveTintColor: '#4666FF', //for font
         tabBarStyle: {
           height: 80,
-          // padding: 10,
           paddingVertical: 40,
+          borderTopWidth: 0,
+          elevation: 0,
         },
         tabBarLabelStyle: {
           fontSize: 10,
+          // color: '#4666FF',
           fontFamily: 'Poppins-SemiBold',
           marginBottom: 10,
         },
@@ -50,7 +53,11 @@ const Tabs = () => {
           headerShown: false,
 
           tabBarIcon: ({focused}) =>
-            focused ? <HistoryIcon /> : <HistoryIcon fillColor="#C0C5D1" />,
+            focused ? (
+              <HistoryIcon stroke="#4666FF" />
+            ) : (
+              <HistoryIcon fillColor="#C0C5D1" />
+            ),
         }}
       />
       <Tab.Screen
@@ -69,7 +76,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? (
-              <FinancialIcon fillColor="#4666FF" />
+              <FinancialIcon fillColor="#4666FF" stroke="#4666FF" />
             ) : (
               <FinancialIcon fillColor="#C0C5D1" />
             ),
@@ -82,7 +89,7 @@ const Tabs = () => {
           headerShown: false,
           tabBarIcon: ({focused}) =>
             focused ? (
-              <ProfileIcon fillColor="#4666FF" />
+              <ProfileIcon fillColor="#4666FF" stroke="#4666FF" />
             ) : (
               <ProfileIcon fillColor="#C0C5D1" />
             ),
