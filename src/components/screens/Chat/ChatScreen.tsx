@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Header from '../../header/Header';
+import MessageInput from './MessageInput';
 
 export default function ChatScreen() {
   return (
@@ -9,7 +10,9 @@ export default function ChatScreen() {
         <Header name="Alexander  James" company="ABC Dispatcher LLC" />
       </View>
 
-      <View style={styles.body}>{/* <Text>Chat here</Text> */}</View>
+      <View style={styles.body}>
+        <MessageInput />
+      </View>
     </View>
   );
 }
@@ -30,5 +33,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     // height: 20,
+  },
+
+  chatContainer: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    padding: 16,
   },
 });
