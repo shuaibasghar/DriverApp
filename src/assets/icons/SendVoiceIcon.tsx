@@ -15,7 +15,7 @@ const SendVoiceIcon: React.FC<SendVoiceIconProps> = props => {
       width={width ? width : '40'}
       height={height ? height : '40'}
       viewBox="0 0 40 40"
-      fill="none"
+      fill="white"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
       <Rect width="40" height="40" rx="12" fill="#4666FF" />

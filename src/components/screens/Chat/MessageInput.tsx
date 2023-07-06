@@ -13,6 +13,7 @@ import {Svg, Rect, Defs, ClipPath, Polygon} from 'react-native-svg';
 
 import SendVoiceIcon from '../../../assets/icons/SendVoiceIcon';
 import PlayIcon from '../../../assets/icons/PlayIcon';
+import UploadIcon from '../../../assets/icons/UploadIcon';
 
 const screenWidth = Dimensions.get('screen').width;
 
@@ -147,10 +148,7 @@ const MessageInput: React.FC = () => {
       <View style={styles.inputAndRecord}>
         <View style={styles.inputContainer}>
           <TouchableOpacity onPress={handleSendTextMessage}>
-            <Image
-              source={require('../../../assets/images/UploadIcon.png')}
-              style={styles.sendIcon}
-            />
+            <UploadIcon />
           </TouchableOpacity>
           <TextInput
             style={styles.input}
@@ -161,16 +159,15 @@ const MessageInput: React.FC = () => {
           />
           <TouchableOpacity onPress={handleSendTextMessage}>
             <Image
-              source={require('../../../assets/images/Send.png')}
+              source={require('../../../assets/images/send.png')}
               style={styles.sendIcon}
             />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={handleSendVoiceMessage}>
-          <Image
-            source={require('../../../assets/images/VoiceRecord.png')}
-            style={styles.voiceIcon}
-          />
+        <TouchableOpacity
+          onPress={handleSendVoiceMessage}
+          style={styles.voiceIcon}>
+          <SendVoiceIcon width={50} height={50} />
         </TouchableOpacity>
       </View>
     </View>
