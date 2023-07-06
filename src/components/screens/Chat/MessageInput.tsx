@@ -8,10 +8,11 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
-  KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
+import {Svg, Rect, Defs, ClipPath, Polygon} from 'react-native-svg';
+
 import SendVoiceIcon from '../../../assets/icons/SendVoiceIcon';
+import PlayIcon from '../../../assets/icons/PlayIcon';
 
 const screenWidth = Dimensions.get('screen').width;
 
@@ -48,7 +49,6 @@ const MessageInput: React.FC = () => {
     };
     setMessages([...messages, newMessage]);
   };
-
   const renderMessage = (message: Message, index: number) => {
     const containerStyle =
       message.sender === 'You'
@@ -63,11 +63,22 @@ const MessageInput: React.FC = () => {
     const time = isLastMessage ? getCurrentTime() : '';
 
     return (
-      <View key={message.id}>
-        <View style={containerStyle}>
+      <View key={message.id} style={containerStyle}>
+        {message.sender === 'You' && (
+          <Svg style={styles.sentMessageKnock} width="10" height="10">
+            <Defs>
+              <ClipPath id="clipPath">
+                <Polygon points="11,0 20,20 10,22" />
+              </ClipPath>
+            </Defs>
+            <Rect width="100%" height="100%" clipPath="url(#clipPath)" />
+          </Svg>
+        )}
+        <View style={styles.sentMessageContent}>
           {message.isVoice ? (
-            <Text style={textStyle}>Voice Icon</Text>
+            <PlayIcon fillColor="white" />
           ) : (
+            // <Text style={textStyle}>Voice Icon</Text>
             <Text style={textStyle}>{message.content}</Text>
           )}
         </View>
@@ -75,6 +86,33 @@ const MessageInput: React.FC = () => {
       </View>
     );
   };
+
+  //   const renderMessage = (message: Message, index: number) => {
+  //     const containerStyle =
+  //       message.sender === 'You'
+  //         ? styles.sentMessageContainer
+  //         : styles.receivedMessageContainer;
+  //     const textStyle =
+  //       message.sender === 'You'
+  //         ? styles.sentMessageText
+  //         : styles.receivedMessageText;
+
+  //     const isLastMessage = index === messages.length - 1;
+  //     const time = isLastMessage ? getCurrentTime() : '';
+
+  //     return (
+  //       <View key={message.id}>
+  //         <View style={containerStyle}>
+  //           {message.isVoice ? (
+  //             <Text style={textStyle}>Voice Icon</Text>
+  //           ) : (
+  //             <Text style={textStyle}>{message.content}</Text>
+  //           )}
+  //         </View>
+  //         {isLastMessage && <Text style={styles.time}>{time}</Text>}
+  //       </View>
+  //     );
+  //   };
 
   const getCurrentTime = () => {
     const now = new Date();
@@ -148,24 +186,37 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     backgroundColor: '#FFFFFF',
   },
+
   messagesContainer: {
     flexGrow: 1,
     paddingBottom: 16,
+  },
+  sentMessageKnock: {
+    position: 'absolute',
+    top: 0,
+    left: -5,
+    width: 10,
+    height: 10,
+    backgroundColor: '#4666FF',
+    transform: [{rotate: '45deg'}],
+    zIndex: 1,
+  },
+  sentMessageContent: {
+    position: 'relative',
+    zIndex: 2,
+    padding: 18,
+    backgroundColor: '#4666FF',
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
+    marginLeft: 10,
   },
   sentMessageContainer: {
     alignSelf: 'flex-end',
     maxWidth: '70%',
     backgroundColor: '#4666FF',
-
-    // borderRadius: 8,
+    borderRadius: 8,
     padding: 18,
     marginBottom: 8,
-    borderBottomLeftRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    // elevation: 10,
   },
   receivedMessageContainer: {
     alignSelf: 'flex-start',
