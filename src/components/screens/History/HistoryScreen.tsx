@@ -1,15 +1,37 @@
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
-import Header from '../../header/Header';
+import ButtonHeader from '../../header/ButtonHeader';
+import LoadsScreen from './LoadsScreen';
 
 export default function HistoryScreen() {
+  const [selectedScreen, setSelectedScreen] = useState<string>('Loads');
+
+  const handleLoadsPress = (screenId: string) => {
+    setSelectedScreen(screenId);
+  };
+
+  const renderScreen = () => {
+    if (selectedScreen === 'Loads') {
+      return (
+        <View style={styles.body}>
+          <LoadsScreen />
+        </View>
+      );
+    } else if (selectedScreen === 'Invoices') {
+      return <Text>Invoices Screen</Text>;
+    }
+    return null;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header name="Alexander  James" company="ABC Dispatcher LLC" />
+        <ButtonHeader
+          selectedButton={selectedScreen}
+          handleLoadsPress={handleLoadsPress}
+        />
       </View>
-
-      <View style={styles.body}>{/* <Text>Chat here</Text> */}</View>
+      <View style={styles.body}>{renderScreen()}</View>
     </View>
   );
 }
@@ -21,14 +43,11 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
-    // backgroundColor: 'red',
-    // height: 20,
   },
   body: {
     flex: 9,
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    // height: 20,
   },
 });
