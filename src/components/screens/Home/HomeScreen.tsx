@@ -1,20 +1,16 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Header from '../../header/Header';
-import Circle from './Circle';
+import LoadHeader from '../../header/LoadHeader';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header name="Alexander  James" company="ABC Dispatcher LLC" />
+        {/* <Header name="Alexander  James" company="ABC Dispatcher LLC" /> */}
+        <LoadHeader title="Load Details" color="#FFFFFF" />
       </View>
 
-      <View style={styles.body}>
-        <View style={styles.circle}>
-          <Circle />
-        </View>
-      </View>
+      <View style={styles.body}></View>
     </View>
   );
 }
@@ -35,11 +31,5 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     // height: 20,
-  },
-  Circle: {
-    flex: 1,
-
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });

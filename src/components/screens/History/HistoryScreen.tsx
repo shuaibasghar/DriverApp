@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import ButtonHeader from '../../header/ButtonHeader';
 import LoadsInvoiceScreen from './LoadsInvoiceScreen';
 
@@ -13,7 +13,7 @@ export default function HistoryScreen() {
   const renderScreen = () => {
     if (selectedScreen === 'Loads') {
       return (
-        <TouchableOpacity style={styles.loadInvoice}>
+        <View style={styles.loadInvoice}>
           <LoadsInvoiceScreen
             from="Miami,FL"
             to="Atlanta,GA"
@@ -50,7 +50,7 @@ export default function HistoryScreen() {
             loadInvoiceHeading="Load rate: "
             loadInvoiceDetail="$1,600"
           />
-        </TouchableOpacity>
+        </View>
       );
     } else if (selectedScreen === 'Invoices') {
       return (
