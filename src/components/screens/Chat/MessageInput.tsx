@@ -10,7 +10,6 @@ import {
   ScrollView,
   FlatList,
 } from 'react-native';
-import {Svg, Rect, Defs, ClipPath, Polygon} from 'react-native-svg';
 
 import SendVoiceIcon from '../../../assets/icons/SendVoiceIcon';
 import PlayIcon from '../../../assets/icons/PlayIcon';
@@ -69,7 +68,7 @@ const MessageInput: React.FC = () => {
         ? styles.sentMessageText
         : styles.receivedMessageText;
 
-    const isLastMessage = index === messages.length - 1; 
+    const isLastMessage = index === messages.length - 1;
 
     return (
       <View>

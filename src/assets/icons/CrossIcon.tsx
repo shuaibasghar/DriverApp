@@ -21,14 +21,14 @@ const CrossIcon: React.FC<CrossIconProps> = props => {
       <Path
         d="M2 2L12.246 12.246"
         stroke={stroke ? stroke : '#4666FF'}
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
       <Path
         d="M12.246 2L2 12.246"
         stroke={stroke ? stroke : '#4666FF'}
-        stroke-width="3"
-        stroke-linecap="round"
+        strokeWidth="3"
+        strokeLinecap="round"
       />
     </Svg>
   );

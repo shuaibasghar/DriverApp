@@ -13,7 +13,7 @@ import AppoloIcons from '../../../assets/icons/AppoloIcons';
 
 const screenWidth = Dimensions.get('screen').width;
 // console.log(screenWidth);
-function Login({navigation}) {
+function Login() {
   // const navigation = useNavigation();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
