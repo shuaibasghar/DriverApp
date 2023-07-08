@@ -1,6 +1,7 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Header from '../../header/Header';
+import Circle from './Circle';
 
 export default function HomeScreen() {
   return (
@@ -9,7 +10,11 @@ export default function HomeScreen() {
         <Header name="Alexander  James" company="ABC Dispatcher LLC" />
       </View>
 
-      <View style={styles.body}>{/* <Text>Chat here</Text> */}</View>
+      <View style={styles.body}>
+        <View style={styles.circle}>
+          <Circle />
+        </View>
+      </View>
     </View>
   );
 }
@@ -30,5 +35,11 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     // height: 20,
+  },
+  Circle: {
+    flex: 1,
+
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
