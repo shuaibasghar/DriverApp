@@ -7,7 +7,12 @@ export default function ChatScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header name="Alexander  James" company="ABC Dispatcher LLC" />
+        <Header
+          name="Alexander  James"
+          company="ABC Dispatcher LLC"
+          indicatorColor="#09C729"
+          indicatorText="Online"
+        />
       </View>
 
       <View style={styles.body}>

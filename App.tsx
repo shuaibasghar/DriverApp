@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Tabs from './src/navigations/Tabs';
+import OrderTrackingScreen from './src/components/screens/OrderTracking/OrderTrakingScreen';
 
 // const Stack = createNativeStackNavigator();
 // const Stack = createBottomTabNavigator();
@@ -16,7 +17,8 @@ function App(): JSX.Element {
         }}
       />
        */}
-      <Tabs />
+      <OrderTrackingScreen />
+      {/* <Tabs /> */}
     </NavigationContainer>
   );
 }

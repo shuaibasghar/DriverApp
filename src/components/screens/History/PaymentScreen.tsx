@@ -4,9 +4,7 @@ import Header from '../../header/Header';
 import InvoiceAmount from '../History/InvoiceAmount';
 import Tasks from '../History/Tasks';
 
-export default function HomeScreen() {
-  const handlePay = () => {};
-
+export default function PaymentScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>

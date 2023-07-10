@@ -4,7 +4,7 @@ import Header from '../../header/Header';
 import InvoiceAmount from '../History/InvoiceAmount';
 import Tasks from '../History/Tasks';
 
-export default function HomeScreen() {
+export default function InvoiceAmountScreen() {
   const handlePay = () => {};
 
   return (
@@ -13,8 +13,8 @@ export default function HomeScreen() {
         <Header
           name="8 Design Co."
           company="IV BY D98899 23"
-          indicatorColor="#09C729"
-          indicatorText="PAID"
+          indicatorColor="#FE6545"
+          indicatorText="LATE"
         />
       </View>
 
@@ -32,16 +32,12 @@ export default function HomeScreen() {
             />
           </View>
           <View>
-            <Tasks name="ABC design is made for XYZ" amount="$ 1080" />
+            <Tasks />
           </View>
-          <View style={styles.paymentContainer}>
-            <View style={styles.paidContainer}>
-              <Text style={styles.paidText}>PAID</Text>
-              <Text style={styles.paidTextDescription}>
-                is simply dummy text of the printing and typesetting industry.
-              </Text>
-            </View>
-
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity style={styles.Button} onPress={handlePay}>
+              <Text style={styles.ButtonText}>Pay Now</Text>
+            </TouchableOpacity>
             <View style={styles.amountContainer}>
               <Text style={styles.totalAmount}>TOTAL AMOUNT</Text>
               <Text style={styles.totalAmountDetail}>
@@ -78,26 +74,23 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 
-  paymentContainer: {
+  buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: 5,
     gap: 15,
     marginHorizontal: 20,
   },
-  paidContainer: {
-    flexDirection: 'column',
-    width: '60%',
+  Button: {
+    backgroundColor: '#4666FF',
+    borderRadius: 8,
+    paddingHorizontal: 40,
+    paddingVertical: 20,
   },
-  paidText: {
+  ButtonText: {
     fontSize: 14,
-    color: '#17C903',
+    color: '#FFFFFF',
     fontFamily: 'Poppins-Medium',
-  },
-  paidTextDescription: {
-    fontSize: 10,
-    color: '#333333',
-    fontFamily: 'Poppins-Regular',
   },
   amountContainer: {
     flexDirection: 'column',

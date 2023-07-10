@@ -138,23 +138,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    // justifyContent: 'center',
-    // flexDirection: 'column',
   },
   innerBody: {
     flex: 1,
     marginVertical: 15,
     gap: 20,
-    // flexDirection: 'column',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#FFFFFF',
-    // borderTopLeftRadius: 30,
-    // borderTopRightRadius: 30,
   },
   loadInvoice: {
-    // flexDirection: 'column',
-    // paddingHorizontal: 20,
     marginBottom: 10,
   },
 });
