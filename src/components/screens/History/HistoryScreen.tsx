@@ -1,8 +1,15 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  TouchableOpacity,
+} from 'react-native';
 import ButtonHeader from '../../header/ButtonHeader';
 import LoadsInvoiceScreen from './LoadsInvoiceScreen';
-
+import LoadDetails from './LoadDetails';
+import {useNavigation} from '@react-navigation/native';
 export default function HistoryScreen() {
   const [selectedScreen, setSelectedScreen] = useState<string>('Loads');
 
@@ -10,22 +17,28 @@ export default function HistoryScreen() {
     setSelectedScreen(screenId);
   };
 
+  const handlePress = () => {
+    // navigation.navigate('LoadDetails');
+    return <LoadDetails />;
+  };
   const renderScreen = () => {
     if (selectedScreen === 'Loads') {
       return (
         <View style={styles.loadInvoice}>
-          <LoadsInvoiceScreen
-            from="Miami,FL"
-            to="Atlanta,GA"
-            dateCompanyHeading="Date"
-            dateCompanyDetail="May 19 2023"
-            shipmentInvoiceHeading="Shipment Number"
-            shipmentInvoiceDetail="1234-5678"
-            statusHeading="Status: "
-            statusHeadingDetail="Completed"
-            loadInvoiceHeading="Load rate: "
-            loadInvoiceDetail="$1,600"
-          />
+          <TouchableOpacity onPress={handlePress} activeOpacity={0.9}>
+            <LoadsInvoiceScreen
+              from="Miami,FL"
+              to="Atlanta,GA"
+              dateCompanyHeading="Date"
+              dateCompanyDetail="May 19 2023"
+              shipmentInvoiceHeading="Shipment Number"
+              shipmentInvoiceDetail="1234-5678"
+              statusHeading="Status: "
+              statusHeadingDetail="Completed"
+              loadInvoiceHeading="Load rate: "
+              loadInvoiceDetail="$1,600"
+            />
+          </TouchableOpacity>
           <LoadsInvoiceScreen
             from="Miami,FL"
             to="Atlanta,GA"

@@ -4,15 +4,22 @@ import BackIcon from '../../assets/icons/BackIcon';
 import TripleDotIcon from '../../assets/icons/TripleDotIcon';
 
 interface LoadHeaderProps {
-  title: string;
-  color: string;
+  title?: string;
+  color?: string;
+  tripleDotIconColor?: string;
+  backButtonColor?: string;
 }
 
-const LoadHeader: React.FC<LoadHeaderProps> = ({title, color}) => {
+const LoadHeader: React.FC<LoadHeaderProps> = ({
+  title,
+  color,
+  tripleDotIconColor,
+  backButtonColor,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.backButton}>
-        <BackIcon />
+        <BackIcon fillColor={backButtonColor} />
       </View>
       <View style={styles.titleContainer}>
         <Text style={{fontSize: 22, fontFamily: 'Poppins-SemiBold', color}}>
@@ -20,7 +27,7 @@ const LoadHeader: React.FC<LoadHeaderProps> = ({title, color}) => {
         </Text>
       </View>
       <View style={styles.settingIcon}>
-        <TripleDotIcon />
+        <TripleDotIcon fillColor={tripleDotIconColor} />
       </View>
     </View>
   );

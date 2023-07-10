@@ -6,8 +6,15 @@ const screenWidth = Dimensions.get('screen').width;
 type HeaderProps = {
   name: string;
   company: string;
+  indicatorColor: string;
+  indicatorText: string;
 };
-const Header: React.FC<HeaderProps> = ({name, company}) => {
+const Header: React.FC<HeaderProps> = ({
+  name,
+  company,
+  indicatorColor,
+  indicatorText,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer1}>
@@ -18,8 +25,8 @@ const Header: React.FC<HeaderProps> = ({name, company}) => {
         <View style={styles.indicatorContainer}>
           <StatusIndicator
             size={8}
-            color="#09C729"
-            text="Online"
+            color={indicatorColor}
+            text={indicatorText}
             textStyle={styles.indicatorText}
           />
         </View>

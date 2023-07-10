@@ -1,9 +1,8 @@
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import LoadHeader from '../../header/LoadHeader';
-import Header from '../../header/Header';
 
-export default function HomeScreen() {
+export default function NewLoadAlert() {
   const handleAccept = () => {
     // Handle accept logic
   };
@@ -17,27 +16,57 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header
-          name="8 Design Co."
-          company="IV BY D98899 23"
-          indicatorColor="#FE6545"
-          indicatorText="LATE"
+        {/* <Header name="Alexander  James" company="ABC Dispatcher LLC" /> */}
+        <LoadHeader
+          title="New Load Alert"
+          color="#333333"
+          tripleDotIconColor="#333333"
+          backButtonColor="#333333"
         />
       </View>
 
       <View style={styles.body}>
         <View style={styles.innerBody}>
+          <View>
+            <Image source={require('../../../assets/images/map.png')} />
+          </View>
+          <View style={styles.name}>
+            <View style={styles.textContainer}>
+              <Text style={styles.text1}>Miami</Text>
+              <Text style={styles.text2}>Florida</Text>
+            </View>
+            <View style={styles.circleContainer}>
+              <View style={[styles.circle, styles.filledCircle]} />
+              <View style={styles.line} />
+              <View style={styles.circle} />
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.text1}>Miami</Text>
+              <Text style={styles.text2}>Georgia</Text>
+            </View>
+          </View>
+          <Text style={styles.rateText}>$1600</Text>
+          <View style={styles.distanceContainer}>
+            <Text style={styles.distanceText}>664 miles</Text>
+            <Text style={styles.distanceText}>$2.40/mi</Text>
+          </View>
           <View style={styles.buttonsContainer}>
+            <TouchableOpacity
+              style={styles.rejectButton}
+              onPress={handleReject}>
+              <Text style={styles.rejectButtonText}>Reject</Text>
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.acceptButton}
               onPress={handleAccept}>
-              <Text style={styles.acceptButtonText}>Pay Now</Text>
+              <Text style={styles.acceptButtonText}>Accept</Text>
             </TouchableOpacity>
-            <View>
-              <Text>Total Amount</Text>
-              <Text>$1600</Text>
-            </View>
           </View>
+          <TouchableOpacity
+            style={styles.seeMoreButton}
+            onPress={handleSeeMore}>
+            <Text style={styles.seeMoreButtonText}>See More</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -47,7 +76,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4666FF',
+    backgroundColor: '#FFFFFF',
   },
   header: {
     flex: 2,
