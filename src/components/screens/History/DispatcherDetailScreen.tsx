@@ -1,12 +1,7 @@
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import Header from '../../header/Header';
-import InvoiceAmount from '../History/InvoiceAmount';
-import Tasks from '../History/Tasks';
-import Dispatcher from '../History/Dispatcher';
-import EditIcon from '../../../assets/icons/editIcon';
 
-export default function HomeScreen() {
+export default function DispatcherDetailScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
