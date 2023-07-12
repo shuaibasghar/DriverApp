@@ -17,8 +17,8 @@ function App(): JSX.Element {
         }}
       />
        */}
-      <OrderTrackingScreen />
-      {/* <Tabs /> */}
+      {/* <OrderTrackingScreen /> */}
+      <Tabs />
     </NavigationContainer>
   );
 }

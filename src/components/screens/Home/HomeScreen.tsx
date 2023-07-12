@@ -3,52 +3,35 @@ import React from 'react';
 import Header from '../../header/Header';
 import InvoiceAmount from '../History/InvoiceAmount';
 import Tasks from '../History/Tasks';
+import Dispatcher from '../History/Dispatcher';
 
 export default function HomeScreen() {
-  const handlePay = () => {};
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Header
-          name="8 Design Co."
-          company="IV BY D98899 23"
-          indicatorColor="#09C729"
-          indicatorText="PAID"
-        />
+        <Text style={styles.headerText}>Your Dispatchers</Text>
       </View>
 
       <View style={styles.body}>
         <View style={styles.innerBody}>
-          <View>
-            <InvoiceAmount
-              invoiceHeading="Invoice For"
-              invoiceForName="Karl Johns"
-              invoiceForAddress="Abc st 1/4, San Francisco,
-            California, USA"
-              amountHeading="Amount Due"
-              amountDetail="$1600"
-              amountDate="April 8,2023"
-            />
-          </View>
-          <View>
-            <Tasks name="ABC design is made for XYZ" amount="$ 1080" />
-          </View>
-          <View style={styles.paymentContainer}>
-            <View style={styles.paidContainer}>
-              <Text style={styles.paidText}>PAID</Text>
-              <Text style={styles.paidTextDescription}>
-                is simply dummy text of the printing and typesetting industry.
-              </Text>
-            </View>
-
-            <View style={styles.amountContainer}>
-              <Text style={styles.totalAmount}>TOTAL AMOUNT</Text>
-              <Text style={styles.totalAmountDetail}>
-                <Text style={{color: '#9AA8B7'}}>$ </Text>1600
-              </Text>
-            </View>
-          </View>
+          <Dispatcher
+            companyName="ABC Logistics LLC"
+            location="Miami, Florida"
+            eid="1234-5678"
+            imagePath="../../"
+          />
+          <Dispatcher
+            companyName="ABC Logistics LLC"
+            location="Miami, Florida"
+            eid="1234-5678"
+            imagePath="../../"
+          />
+          <Dispatcher
+            companyName="ABC Logistics LLC"
+            location="Miami, Florida"
+            eid="1234-5678"
+            imagePath="../../"
+          />
         </View>
       </View>
     </View>
@@ -62,8 +45,13 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
-    // backgroundColor: 'red',
-    // height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 22,
+    color: '#FFFFFF',
+    fontFamily: 'Poppins-SemiBold',
   },
   body: {
     flex: 9,

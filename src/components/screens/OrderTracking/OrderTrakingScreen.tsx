@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
   innerBody: {
     flex: 1,
     marginVertical: 40,
-    // borderWidth: 1,
     marginHorizontal: 40,
   },
 
@@ -100,13 +99,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F5F6FA',
     borderRadius: 8,
-    // padding: 20,
     paddingHorizontal: 20,
     paddingVertical: 10,
     zIndex: 1,
   },
   timeText: {
-    // textAlign: 'center',
     fontSize: 16,
     color: '#FFFFFF',
     fontFamily: 'Poppins-SemiBold',
@@ -151,7 +148,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 15,
-    // marginTop: 20,
   },
   checkListContainerTwo: {
     flexDirection: 'row',
@@ -213,7 +209,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#4666FF',
     borderRadius: 8,
     marginHorizontal: 70,
-
     paddingVertical: 18,
   },
   acceptButtonText: {
