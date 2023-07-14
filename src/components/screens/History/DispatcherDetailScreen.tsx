@@ -69,7 +69,7 @@ export default function DispatcherDetailScreen() {
 
           {/* Vehicle info */}
           <View style={styles.Vehicle}>
-            <Text style={styles.companyInfoText}>Company Info</Text>
+            <Text style={styles.companyInfoText}>Vehicle Info</Text>
             <View style={styles.DetailContainer}>
               <View style={styles.DetailContainerInfo}>
                 <Text style={styles.HeadingText}>Year: </Text>
