@@ -1,15 +1,11 @@
+import React, {useState} from 'react';
 import {
   View,
   Dimensions,
   Text,
   StyleSheet,
-  Image,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
-import {BarChart} from 'react-native-chart-kit';
-import Chart from './Chart';
-
 import {
   VictoryBar,
   VictoryChart,
@@ -21,18 +17,12 @@ interface ChartData {
   labels: string[];
   datasets: {data: number[]}[];
 }
+
 const screenSize = Dimensions.get('window').width;
-export default function HomeScreen() {
+
+const HomeScreen = () => {
   const [timePeriod, setTimePeriod] = useState('daily');
   const [showDH, setShowDH] = useState(true);
-
-  const data = [
-    {x: 20, y: 0},
-    {x: 15, y: 100},
-    {x: 20, y: 200},
-    {x: 25, y: 300},
-    {x: 30, y: 400},
-  ];
 
   const dailyData: ChartData = {
     labels: ['0', '15', '20', '25', '30'],
@@ -64,9 +54,12 @@ export default function HomeScreen() {
   const handleTimePeriodChange = (period: string) => {
     setTimePeriod(period);
   };
+
   const handleToggleDH = () => {
     setShowDH(!showDH);
   };
+
+  const chartData = timePeriodData[timePeriod];
 
   return (
     <View style={styles.container}>
@@ -147,11 +140,7 @@ export default function HomeScreen() {
                 padding={{left: 50, right: 20, top: 20, bottom: 50}}
                 height={250}
                 width={screenSize}
-                // height={50}
-
-                domainPadding={24}
-                theme={VictoryTheme.material}
-                style={{}}>
+                theme={VictoryTheme.material}>
                 <VictoryAxis
                   style={{
                     axis: {stroke: '#333333', strokeWidth: 1},
@@ -177,10 +166,10 @@ export default function HomeScreen() {
                     labels: {},
                   }}
                   barWidth={10}
-                  // barRatio={20}
-                  data={data}
-                  x="x"
-                  y="y"
+                  data={chartData.datasets[0].data.map((value, index) => ({
+                    x: chartData.labels[index],
+                    y: value,
+                  }))}
                 />
               </VictoryChart>
             </View>
@@ -238,7 +227,7 @@ export default function HomeScreen() {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -253,10 +242,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerContainer: {
-    // flexDirection: 'row',
     justifyContent: 'center',
   },
-
   rateText: {
     fontSize: 20,
     color: '#FFFFFF',
@@ -279,7 +266,6 @@ const styles = StyleSheet.create({
     color: '#4666FF',
     fontFamily: 'Poppins-Medium',
   },
-
   body: {
     flex: 9,
     backgroundColor: '#FFFFFF',
@@ -319,14 +305,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins-SemiBold',
     color: '#333333',
     textAlign: 'center',
-    // marginVertical: 10,
   },
-  chart: {marginVertical: 0, height: 240},
+  chart: {
+    marginVertical: 0,
+    height: 240,
+  },
   toggleContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-
-    // marginVertical: 16,
   },
   toggleButton: {
     paddingHorizontal: 16,
@@ -371,3 +357,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#D2D2D2',
   },
 });
+
+export default HomeScreen;
